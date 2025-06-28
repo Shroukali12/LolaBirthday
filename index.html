@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Birthday Card</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      font-family: 'Arial', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card-wrapper {
+      perspective: 1200px;
+    }
+
+    .card {
+      width: 400px;
+      height: 580px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1s;
+    }
+
+    .card.open {
+      transform: rotateY(-180deg);
+    }
+
+    .card-side {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 24px;
+      box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+
+    .card-front,
+    .card-back {
+      background: #fff;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .card-front h1 {
+      color: #ff4081;
+      font-size: 34px;
+      margin-top: 40px;
+    }
+
+    .card-front img {
+      width: 200px;
+      margin: 30px auto;
+      display: block;
+      
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+    }
+
+    .card-back h2 {
+      color: #ff4081;
+      margin-top: 60px;
+      font-size: 28px;
+    }
+
+    .card-back p {
+      font-size: 18px;
+      color: #555;
+      margin: 20px 0;
+      line-height: 1.6;
+    }
+
+    .signature {
+      margin-top: 40px;
+      font-style: italic;
+      color: #888;
+      font-size: 16px;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 12px 26px;
+      background: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 17px;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #e91e63;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card-wrapper">
+    <div class="card" id="card">
+      <!-- Front Side -->
+      <div class="card-side card-front">
+        <h1> Happy Birthday 🎂</h1>
+        <img src="photo_2025-06-28_18-12-48.jpg" alt="Birthday Cake">
+        <button class="btn" onclick="toggleCard()">Open Card</button>
+      </div>
+
+      <!-- Back Side (Inside) -->
+      <div class="card-side card-back">
+        <h2>Happy Birthday!</h2>
+        <p>Wishing you a very Happy Birthday Hala! </p>
+        <p>May god bless you.</p>
+        <p> I couldn't be more thankful to have such a selfless, loveing ,loyal friend like you. nothing can replace the memories& time we've built.</p>
+        <p>Cheers to many more years of sisterhood to come,</p>
+        <div class="signature">22!</div>
+        <button class="btn" onclick="toggleCard()">Close Card</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleCard() {
+      document.getElementById('card').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
